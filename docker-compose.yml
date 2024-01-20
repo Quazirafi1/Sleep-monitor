@@ -11,6 +11,14 @@ services:
         - 1883:1883
       restart: unless-stopped
 
+  node-red:
+    restart: always
+    image: nodered/node-red
+    container_name: sleep-monitor-nodered-1
+    build: docker-nodered/
+    ports:
+      - 1880:1880
+
   influxdb:
     image: influxdb:2.1.1
     volumes:
