@@ -1,4 +1,6 @@
 #simulator device 1 for mqtt message publishing
+print("'''''''''''''''''''''''''''''''''''")
+
 import paho.mqtt.client as paho
 import time
 import random
@@ -7,22 +9,21 @@ from datetime import datetime
 import pytz
 
 # hostname
-broker = "172.30.0.110"
+broker = "localhost"
 # port
 port = 1883
 
 def on_publish(client, userdata, result):
-    print("Body Temperature Publisher : Data published.")
+    print("Blood Oxygen Levels Publisher : Data published.")
     pass
 
 client = paho.Client("admin")
 client.on_publish = on_publish
 client.connect(broker, port)
+client.loop_start()
 
 # Path to the CSV file
-csv_file_path = './BodyTemperature.csv'
-delimiter = ','
-data_map = {}
+csv_file_path = './BloodOxygenLevels.csv'
 
 # Read and publish data from CSV
 try:
@@ -30,8 +31,7 @@ try:
         csv_reader = csv.reader(file)
         next(csv_reader)  # Skip header row if there is one
         for row in csv_reader:
-            # message = f"Device 1 : Data {','.join(row)}"
-            # ret = client.publish("/xyz", message)
+
             time.sleep(random.randint(1, 5))  # Random delay between 1 and 5 seconds
 
             rome_tz = pytz.timezone('Europe/Rome')
@@ -39,15 +39,12 @@ try:
 
             data_map = {
                 "timestamp": timestamp,
-                "BodyTemperature": row[0]
+                "BloodOxygenLevel": row[0]
             }
 
             data_map_string = str(data_map)
-            # message = mqtt.MqttMessage()
-            # message.payload = data_map_string.encode()
-            
-            # message = f"Device 1 : Data {','.join(row)}"
-            ret = client.publish("/SleepMonitor/BT", data_map_string.encode())
+
+            ret = client.publish("/SleepMonitor/BOL", data_map_string.encode())
             
             time.sleep(5) 
 

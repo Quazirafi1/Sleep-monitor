@@ -7,12 +7,12 @@ from datetime import datetime
 import pytz
 
 # hostname
-broker = "172.30.0.110"
+broker = "localhost"
 # port
 port = 1883
 
 def on_publish(client, userdata, result):
-    print("Blood Oxygen Levels Publisher : Data published.")
+    print("Body Temperature Publisher : Data published.")
     pass
 
 client = paho.Client("admin")
@@ -20,7 +20,7 @@ client.on_publish = on_publish
 client.connect(broker, port)
 
 # Path to the CSV file
-csv_file_path = './BloodOxygenLevels.csv'
+csv_file_path = './BodyTemperature.csv'
 delimiter = ','
 data_map = {}
 
@@ -39,7 +39,7 @@ try:
 
             data_map = {
                 "timestamp": timestamp,
-                "BloodOxygenLevel": row[0]
+                "BodyTemperature": row[0]
             }
 
             data_map_string = str(data_map)
@@ -47,7 +47,7 @@ try:
             # message.payload = data_map_string.encode()
             
             # message = f"Device 1 : Data {','.join(row)}"
-            ret = client.publish("/SleepMonitor/BOL", data_map_string.encode())
+            ret = client.publish("/SleepMonitor/BT", data_map_string.encode())
             
             time.sleep(5) 
 

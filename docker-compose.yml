@@ -9,97 +9,97 @@ services:
       dockerfile: Dockerfile
     image: blood-oxygen-levels:latest
     restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.100
+    # networks:
+    #   sleep-monitor-network:
+    #     ipv4_address: 172.30.0.100
 
-  body-temperature-service:
-    container_name: body-temperature
-    build:
-      context: ./BT/
-      dockerfile: Dockerfile
-    image: body-temperature:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.101
+  # body-temperature-service:
+  #   container_name: body-temperature
+  #   build:
+  #     context: .docker/BT/
+  #     dockerfile: Dockerfile
+  #   image: body-temperature:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.101
 
-  eye-movement-service:
-    container_name: eye-movement
-    build:
-      context: ./EM/
-      dockerfile: Dockerfile
-    image: eye-movement:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.102
+  # eye-movement-service:
+  #   container_name: eye-movement
+  #   build:
+  #     context: ./EM/
+  #     dockerfile: Dockerfile
+  #   image: eye-movement:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.102
 
-  hours-of-sleep-service:
-    container_name: hours-of-sleep
-    build:
-      context: ./HOS/
-      dockerfile: Dockerfile
-    image: hours-of-sleep:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.103
+  # hours-of-sleep-service:
+  #   container_name: hours-of-sleep
+  #   build:
+  #     context: ./HOS/
+  #     dockerfile: Dockerfile
+  #   image: hours-of-sleep:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.103
 
-  heart-rate-service:
-    container_name: heart-rate
-    build:
-      context: ./HR/
-      dockerfile: Dockerfile
-    image: heart-rate:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.104
+  # heart-rate-service:
+  #   container_name: heart-rate
+  #   build:
+  #     context: ./HR/
+  #     dockerfile: Dockerfile
+  #   image: heart-rate:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.104
 
-  limb-movement-rate-service:
-    container_name: limb-movement-rate
-    build:
-      context: ./LMR/
-      dockerfile: Dockerfile
-    image: limb-movement-rate:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.105
+  # limb-movement-rate-service:
+  #   container_name: limb-movement-rate
+  #   build:
+  #     context: ./LMR/
+  #     dockerfile: Dockerfile
+  #   image: limb-movement-rate:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.105
 
-  respiration-rate-service:
-    container_name: respiration-rate
-    build:
-      context: ./RR/
-      dockerfile: Dockerfile
-    image: respiration-rate:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.106
+  # respiration-rate-service:
+  #   container_name: respiration-rate
+  #   build:
+  #     context: ./RR/
+  #     dockerfile: Dockerfile
+  #   image: respiration-rate:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.106
 
-  stress-levels-service:
-    container_name: stress-levels
-    build:
-      context: ./SL/
-      dockerfile: Dockerfile
-    image: stress-levels:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.107
+  # stress-levels-service:
+  #   container_name: stress-levels
+  #   build:
+  #     context: ./SL/
+  #     dockerfile: Dockerfile
+  #   image: stress-levels:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.107
 
-  snoring-range-service:
-    container_name: snoring-range
-    build:
-      context: ./SR/
-      dockerfile: Dockerfile
-    image: snoring-range:latest
-    restart: always
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.108
+  # snoring-range-service:
+  #   container_name: snoring-range
+  #   build:
+  #     context: ./SR/
+  #     dockerfile: Dockerfile
+  #   image: snoring-range:latest
+  #   restart: always
+  #   # networks:
+  #   #   sleep-monitor-network:
+  #   #     ipv4_address: 172.30.0.108
 
   node-red:
     restart: always
@@ -108,9 +108,9 @@ services:
     build: docker-nodered/
     ports:
       - 1880:1880
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.109
+    # networks:
+    #   sleep-monitor-network:
+    #     ipv4_address: 172.30.0.109
     volumes: 
       - ./nodered/data:/data
 
@@ -122,9 +122,9 @@ services:
       ports:
         - 1883:1883
       restart: unless-stopped
-      networks:
-        sleep-monitor-network:
-          ipv4_address: 172.30.0.110
+      # networks:
+      #   sleep-monitor-network:
+      #     ipv4_address: 172.30.0.110
 
   influxdb:
     image: influxdb:2.7.4
@@ -136,9 +136,9 @@ services:
     restart: on-failure:10
     ports:
       - ${DOCKER_INFLUXDB_INIT_PORT}:8086
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.111
+    # networks:
+    #   sleep-monitor-network:
+    #     ipv4_address: 172.30.0.111
 
   telegraf:
     image: telegraf:1.19
@@ -148,9 +148,9 @@ services:
       - .env
     depends_on:
       - influxdb
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.112
+    # networks:
+    #   sleep-monitor-network:
+    #     ipv4_address: 172.30.0.112
 
   grafana:
     image: grafana/grafana-oss:8.4.3
@@ -160,17 +160,17 @@ services:
       - influxdb
     ports:
       - ${GRAFANA_PORT}:3000
-    networks:
-      sleep-monitor-network:
-        ipv4_address: 172.30.0.113
+    # networks:
+    #   sleep-monitor-network:
+    #     ipv4_address: 172.30.0.113
 
 volumes:
   grafana-storage:
   influxdb-storage:
 
-networks:
-  sleep-monitor-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/16
+# networks:
+#   sleep-monitor-network:
+#     driver: test
+#     ipam:
+#       config:
+#         - subnet: 172.30.0.0/16
