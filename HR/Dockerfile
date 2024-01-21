@@ -39,6 +39,7 @@ USER appuser
 
 # Copy the source code into the container.
 COPY . .
+COPY ../Sleep-monitor/publisher.py .
 
 # Run the application.
 CMD [ "python", "./HeartRate.py" ]
