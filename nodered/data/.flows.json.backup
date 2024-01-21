@@ -1,0 +1,230 @@
+[
+    {
+        "id": "cc798c022ca2deaf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fe057dd56c7a4577",
+        "type": "mqtt-broker",
+        "name": "mqtt docker",
+        "broker": "172.30.0.110",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3acab22acb1a6a10",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Body Oxygen Levels",
+        "topic": "/SleepMonitor/BOL",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "864ba3a54453779b"
+            ]
+        ]
+    },
+    {
+        "id": "06c4be7351e39cc1",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Body Temperature",
+        "topic": "/SleepMonitor/BT",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85f1543620555f10",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Eye Movement",
+        "topic": "/SleepMonitor/EM",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "455609bffca71ee6",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Hours Of Sleep",
+        "topic": "/SleepMonitor/HOS",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5301f113b09dca57",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Heart Rate",
+        "topic": "/SleepMonitor/HR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ea80faf1b98d993b",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Limb Movement Rate",
+        "topic": "/SleepMonitor/LMR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f690ad78ce675105",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Respiration Rate",
+        "topic": "/SleepMonitor/RR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e08ecb6f5ca66bcf",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Stress Levels",
+        "topic": "/SleepMonitor/SL",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc259bd4891e2a29",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Snoring Range",
+        "topic": "/SleepMonitor/SR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "864ba3a54453779b",
+        "type": "debug",
+        "z": "cc798c022ca2deaf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 240,
+        "wires": []
+    }
+]
