@@ -6,21 +6,27 @@ import csv
 from datetime import datetime
 import pytz
 
+print('starting simulation')
+
 # hostname
 broker = "172.30.0.110"
 # port
 port = 1883
 
 def on_publish(client, userdata, result):
-    print("Hours Of Sleep Publisher : Data published.")
+    print("Body Temperature Publisher : Data published.")
     pass
+
+print('connecting to mosquitto')
 
 client = paho.Client("admin")
 client.on_publish = on_publish
 client.connect(broker, port)
 
+print ('connected to mqtt')
+
 # Path to the CSV file
-csv_file_path = './HoursOfSleep.csv'
+csv_file_path = './BodyTemperature.csv'
 delimiter = ','
 data_map = {}
 
@@ -39,7 +45,7 @@ try:
 
             data_map = {
                 "timestamp": timestamp,
-                "HoursOfSleep": row[0]
+                "BodyTemperature": row[0]
             }
 
             data_map_string = str(data_map)
@@ -47,7 +53,11 @@ try:
             # message.payload = data_map_string.encode()
             
             # message = f"Device 1 : Data {','.join(row)}"
-            ret = client.publish("/SleepMonitor/HOS", data_map_string.encode())
+            ret = client.publish("/SleepMonitor/BT", data_map_string.encode())
+            print(ret.rc)
+            ret.wait_for_publish()
+
+            print('data published')
             
             time.sleep(5) 
 
