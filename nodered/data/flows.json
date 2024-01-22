@@ -285,7 +285,7 @@
         "id": "5140c7a440918ff3",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 3",
+        "name": "Extract value for EM",
         "func": "msg.payload = msg.payload.EyeMovement;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -293,7 +293,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1140,
         "y": 360,
         "wires": [
             [
@@ -737,7 +737,7 @@
         "id": "339115d4097a3abf",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 4",
+        "name": "Extract value for BOL",
         "func": "msg.payload = msg.payload.BloodOxygenLevel;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -745,7 +745,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1140,
         "y": 240,
         "wires": [
             [
@@ -757,7 +757,7 @@
         "id": "661971f7e65eeb72",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 5",
+        "name": "Extract value for BT",
         "func": "msg.payload = msg.payload.BodyTemperature;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -765,7 +765,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1130,
         "y": 300,
         "wires": [
             [
@@ -777,7 +777,7 @@
         "id": "a83e1db21bdd7ee8",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 6",
+        "name": "Extract value for HOS",
         "func": "msg.payload = msg.payload.HoursOfSleep;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -785,7 +785,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1140,
         "y": 420,
         "wires": [
             [
@@ -797,7 +797,7 @@
         "id": "618e7ebb1f95119e",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 7",
+        "name": "Extract value for HR",
         "func": "msg.payload = msg.payload.HeartRate;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -805,8 +805,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1178.6666259765625,
-        "y": 478,
+        "x": 1140,
+        "y": 480,
         "wires": [
             [
                 "cb656a3376314774"
@@ -817,7 +817,7 @@
         "id": "58fe4b202489c556",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 8",
+        "name": "Extract value for LMR",
         "func": "msg.payload = msg.payload.LimbMovementRate;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -825,7 +825,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1140,
         "y": 540,
         "wires": [
             [
@@ -837,7 +837,7 @@
         "id": "8a54745fb7918c53",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 9",
+        "name": "Extract value for RR",
         "func": "msg.payload = msg.payload.respirationRate;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -845,7 +845,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1140,
         "y": 600,
         "wires": [
             [
@@ -857,7 +857,7 @@
         "id": "182156121b1b943d",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 10",
+        "name": "Extract value for SL",
         "func": "msg.payload = msg.payload.StressLevels;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -865,8 +865,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1188.6666259765625,
-        "y": 662,
+        "x": 1130,
+        "y": 660,
         "wires": [
             [
                 "6b1cf7c4f229a14e"
@@ -877,7 +877,7 @@
         "id": "885f01ef9e850811",
         "type": "function",
         "z": "cc798c022ca2deaf",
-        "name": "function 11",
+        "name": "Extract value for SR",
         "func": "msg.payload = msg.payload.snoringRange;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
@@ -885,7 +885,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1190,
+        "x": 1140,
         "y": 720,
         "wires": [
             [
