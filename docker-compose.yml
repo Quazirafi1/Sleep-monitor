@@ -176,7 +176,7 @@ services:
   grafana:
     image: grafana/grafana-oss:8.4.3
     volumes:
-      - grafana-storage:/var/lib/grafana:rw
+      - ./grafana:/var/lib/grafana:rw
     depends_on:
       - influxdb
     ports:

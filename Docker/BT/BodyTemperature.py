@@ -19,9 +19,10 @@ def on_publish(client, userdata, result):
 
 print('connecting to mosquitto')
 
-client = paho.Client("admin")
+client = paho.Client("BT_client")
 client.on_publish = on_publish
 client.connect(broker, port)
+client.loop_start()
 
 print ('connected to mqtt')
 
@@ -55,7 +56,11 @@ try:
             # message = f"Device 1 : Data {','.join(row)}"
             ret = client.publish("/SleepMonitor/BT", data_map_string.encode())
             print(ret.rc)
-            ret.wait_for_publish()
+            try:
+                ret.wait_for_publish()
+            except RuntimeError as e:
+                print(e)
+                client.connect(broker, port)
 
             print('data published')
             
@@ -65,3 +70,5 @@ except IOError as e:
     print("An error occurred:", e)
 
 print("stopped")
+
+client.loop_stop()
