@@ -10,35 +10,46 @@ This system is dedicated to the movement towards a healthier lifestyle. Nowadays
 ## Setup
 1. Run the project
     - Go to project in terminal
-        - Execute `Docker-compose up`
+    - Execute `Docker-compose up -d`
 2. Log in to InfluxDB
-    - Go to localhost:8086
+    - Go to `localhost:8086`
+    - Log in
         - Username: admin
         - Password: admin123
-3. Create bucket
+3. Log in to Grafana
+    - Go to `localhost:3000`
+    - Log in
+        - Username: admin
+        - Password: admin
+    - Press `Skip`
+4. Create bucket
     - Hover over the upward arrow in the leftside panel and go to `Buckets`
-	    - Press `+ Create bucket`
+	- Press `+ CREATE BUCKET`
         - Name the bucket `SleepMonitor`
-Go to API tokens
-Generate custom API token
-        - ‘Telegraf’
-            - Write to sleepMonitor
-            - Read from all telegrafs
-Go to .env
-	Change INFLUX_TOKEN to the generated API token
-Go to localhost:8086
-Go to API tokens
-Generate custom API token
-    - ‘Grafana’
-        - Read from sleepMonitor
-Go to .env
-	Change GRAFANA_INFLUX_TOKEN to the generated API token
-Save .env
-Go to localhost:3000
-	Go to configuration
-		Go to InfluxDB Details
-			Change Token to generated API token
-			Press ‘Save & test’
-Go to running project terminal
-	Enter ctrl+C
-	Run docker-compose up
+5. Set up Telegraf API token
+    - Hover over the upward arrow in the leftside panel and go to `API Tokens`
+    - Press `+ GENERATE API TOKEN` and select `Cusom API Token`
+        - Allow `write` for `Buckets` > `SleepMonitor`
+        - Allow `read` from `Telegrafs` > `All Telegrafs`
+    - Optional: Describe the token as `Telegraf`
+    - Press `Copy to clipboard`
+    - Go to the project's .env file
+    - Change the `INFLUX_TOKEN` to the generated Telegraf API token (in the clipboard)
+6. Set up Grafan API token
+    - Go back to `localhost:8086`
+    - Hover over the upward arrow in the leftside panel and go to `API Tokens`
+    - Press `+ GENERATE API TOKEN` and select `Cusom API Token`
+        - Allow `read` from `Buckets` > `SleepMonitor`
+    - Optional: Describe the token as `Grafana`
+    - Press `Copy to clipboard`
+    - Go to the project's .env file
+    - Change the `GRAFANA_INFLUX_TOKEN` to the generated API token (in the clipboard)
+    - Go to `localhost:3000` (repeat step 3 when logged out)
+    - Go to `configuration` > `InfluxDB`
+    - Under `InfluxDB Details`, change `Token` to the generated Grafana API Token (in the clipboard)
+    - Press `Save & test`
+7. Run the project
+    - Save the .env file
+    - Go to project in terminal
+    - Execute `Docker-compose down`
+    - Execute `Docket compose up`
