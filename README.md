@@ -8,12 +8,17 @@ Users need to log in to the Grafana dashboard to view their health metrics relat
 This system is dedicated to the movement towards a healthier lifestyle. Nowadays, fitness bands help people maintain a more active lifestyle. However, quality sleep is just as important as regular exercise for maintaining a healthy body. Thus, through this system, people can better understand their sleeping patterns and adjust their lifestyles to achieve healthier bodies. This system can also be highly appreciated by healthcare providers, as having a good understanding of patients' sleeping patterns can assist in diagnosing various health complexities.
 
 ## Setup
-Go to project in terminal
-	Docker-compose up
-Go to localhost:8086
-Enter admin -> admin123
-Go to Buckets
-	      Create bucket ’SleepMonitor’
+1. Run the project
+    - Go to project in terminal
+        - Execute `Docker-compose up`
+2. Log in to InfluxDB
+    - Go to localhost:8086
+        - Username: admin
+        - Password: admin123
+3. Create bucket
+    - Hover over the upward arrow in the leftside panel and go to `Buckets`
+	    - Press `+ Create bucket`
+        - Name the bucket `SleepMonitor`
 Go to API tokens
 Generate custom API token
         - ‘Telegraf’
