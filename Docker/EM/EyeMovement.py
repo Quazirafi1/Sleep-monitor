@@ -5,11 +5,15 @@ import random
 import csv
 from datetime import datetime
 import pytz
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 print('starting simulation')
 
 # hostname
-broker = "172.30.0.110"
+broker = os.environ.get('EYE_MOVEMENT_IP')
 # port
 port = 1883
 

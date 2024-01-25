@@ -9,6 +9,8 @@ services:
       dockerfile: Dockerfile
     image: blood-oxygen-levels:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -22,6 +24,8 @@ services:
       dockerfile: Dockerfile
     image: body-temperature:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -35,6 +39,8 @@ services:
       dockerfile: Dockerfile
     image: eye-movement:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -48,6 +54,8 @@ services:
       dockerfile: Dockerfile
     image: hours-of-sleep:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -61,6 +69,8 @@ services:
       dockerfile: Dockerfile
     image: heart-rate:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -74,6 +84,8 @@ services:
       dockerfile: Dockerfile
     image: limb-movement-rate:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -87,6 +99,8 @@ services:
       dockerfile: Dockerfile
     image: respiration-rate:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -100,6 +114,8 @@ services:
       dockerfile: Dockerfile
     image: stress-levels:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -113,6 +129,8 @@ services:
       dockerfile: Dockerfile
     image: snoring-range:latest
     restart: always
+    env_file:
+      - .env
     depends_on:
       - mqtt
     networks:
@@ -125,7 +143,7 @@ services:
       - mqtt
     image: nodered/node-red
     container_name: sleep-monitor-nodered-1
-    build: docker-nodered/
+    # build: docker-nodered/
     ports:
       - 1880:1880
     networks:
