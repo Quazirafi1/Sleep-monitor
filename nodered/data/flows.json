@@ -232,7 +232,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed BOL",
-        "topic": "/SleepMonitor/Processed/BOL",
+        "topic": "Blood oxygen levels",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -306,7 +306,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed EM",
-        "topic": "/SleepMonitor/Processed/EM",
+        "topic": "Eye movement",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -491,7 +491,8 @@
         "y": 240,
         "wires": [
             [
-                "339115d4097a3abf"
+                "339115d4097a3abf",
+                "7026b9d25d56dafa"
             ]
         ]
     },
@@ -612,7 +613,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed BT",
-        "topic": "/SleepMonitor/Processed/BT",
+        "topic": "Body temperature",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -630,7 +631,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed HOS",
-        "topic": "/SleepMonitor/Processed/HOS",
+        "topic": "Hours of sleep",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -648,7 +649,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed HR",
-        "topic": "/SleepMonitor/Processed/HR",
+        "topic": "Heart rate",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -666,7 +667,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed LMR",
-        "topic": "/SleepMonitor/Processed/LMR",
+        "topic": "Limb movement rate",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -684,7 +685,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed RR",
-        "topic": "/SleepMonitor/Processed/RR",
+        "topic": "Respiration rate",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -702,7 +703,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed SL",
-        "topic": "/SleepMonitor/Processed/SL",
+        "topic": "Stress levels",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -720,7 +721,7 @@
         "type": "mqtt out",
         "z": "cc798c022ca2deaf",
         "name": "Accessed SR",
-        "topic": "/SleepMonitor/Processed/SR",
+        "topic": "Snoring rate",
         "qos": "2",
         "retain": "",
         "respTopic": "",
@@ -749,7 +750,8 @@
         "y": 240,
         "wires": [
             [
-                "458627fdb8265aff"
+                "458627fdb8265aff",
+                "22da52f9b5fe8dd3"
             ]
         ]
     },
@@ -892,5 +894,37 @@
                 "1c10327f293ac2ca"
             ]
         ]
+    },
+    {
+        "id": "7026b9d25d56dafa",
+        "type": "debug",
+        "z": "cc798c022ca2deaf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "22da52f9b5fe8dd3",
+        "type": "debug",
+        "z": "cc798c022ca2deaf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 160,
+        "wires": []
     }
 ]

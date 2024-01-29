@@ -167,7 +167,7 @@ services:
   influxdb:
     image: influxdb:2.7.4
     volumes:
-      - influxdb-storage:/var/lib/influxdb2:rw
+      - ./influxdb-storage/data:/var/lib/influxdb2:rw
     env_file:
       - .env
     entrypoint: ["./entrypoint.sh"]
