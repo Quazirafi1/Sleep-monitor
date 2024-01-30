@@ -164,7 +164,7 @@ services:
   influxdb:
     image: influxdb:2.7.4
     volumes:
-      - ./influxdb:/var/lib/influxdb2:rw
+      - ${INFLUXDB_MOUNT_PATH}:/var/lib/influxdb2:rw
     env_file:
       - .env
     entrypoint: ["./entrypoint.sh"]
@@ -178,7 +178,7 @@ services:
   telegraf:
     image: telegraf:1.19
     volumes:
-      - ${TELEGRAF_CFG_PATH}:/etc/telegraf/telegraf.conf:rw
+      - ${TELEGRAF_MOUNT_PATH}:/etc/telegraf/telegraf.conf:rw
     env_file:
       - .env
     depends_on:
@@ -191,7 +191,7 @@ services:
   grafana:
     image: grafana/grafana-oss:8.4.3
     volumes:
-      - ./grafana:/var/lib/grafana:rw
+      - ${GRAFANA_MOUNT_PATH}:/var/lib/grafana:rw
     depends_on:
       - influxdb
     ports:
