@@ -13,7 +13,7 @@ load_dotenv()
 print('starting simulation')
 
 # hostname
-broker = os.environ.get('SRESS_LEVELS_IP')
+broker = f"tcp://{os.environ.get('SRESS_LEVELS_CONTAINER')}"
 # port
 port = 1883
 

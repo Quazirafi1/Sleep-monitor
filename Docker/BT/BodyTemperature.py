@@ -13,7 +13,7 @@ load_dotenv()
 print('starting simulation')
 
 # hostname
-broker = os.environ.get('BODY_TEMPERATURE_IP')
+broker = f"tcp://{os.environ.get('BODY_TEMPERATURE_CONTAINER')}"
 # port
 port = 1883
 

@@ -13,7 +13,7 @@ load_dotenv()
 print('starting simulation')
 
 # hostname
-broker = os.environ.get('SNORING_RANGE_IP')
+broker = f"tcp://{os.environ.get('SNORING_RANGE_CONTAINER')}"
 # port
 port = 1883
 

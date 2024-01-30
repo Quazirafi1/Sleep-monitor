@@ -13,7 +13,7 @@ load_dotenv()
 print('starting simulation')
 
 # hostname
-broker = os.environ.get('EYE_MOVEMENT_IP')
+broker = f"tcp://{os.environ.get('EYE_MOVEMENT_CONTAINER')}"
 # port
 port = 1883
 

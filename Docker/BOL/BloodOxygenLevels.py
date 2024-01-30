@@ -10,10 +10,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-print('starting simulation')
+print('starting simulation...')
 
 # hostname
-broker = os.environ.get('BLOOD_OXYGEN_LEVELS_IP')
+broker = f"tcp://mqtt"
+print("---------")
+print(f"broker: {broker}")
+print('---------')
 # port
 port = 1883
 

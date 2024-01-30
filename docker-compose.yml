@@ -3,7 +3,7 @@ version: "3"
 services:
 
   blood-oxygen-level-service:
-    container_name: blood-oxygen-levels
+    container_name: ${BLOOD_OXYGEN_LEVELS_CONTAINER}
     build:
       context: ./Docker/BOL/
       dockerfile: Dockerfile
@@ -13,12 +13,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${BLOOD_OXYGEN_LEVELS_IP}
 
   body-temperature-service:
-    container_name: body-temperature
+    container_name: ${BODY_TEMPERATURE_CONTAINER}
     build:
       context: ./Docker/BT/
       dockerfile: Dockerfile
@@ -28,12 +25,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${BODY_TEMPERATURE_IP}
 
   eye-movement-service:
-    container_name: eye-movement
+    container_name: ${EYE_MOVEMENT_CONTAINER}
     build:
       context: ./Docker/EM/
       dockerfile: Dockerfile
@@ -43,12 +37,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${EYE_MOVEMENT_IP}
 
   hours-of-sleep-service:
-    container_name: hours-of-sleep
+    container_name: ${HOURS_OF_SLEEP_CONTAINER}
     build:
       context: ./Docker/HOS/
       dockerfile: Dockerfile
@@ -58,12 +49,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${HOURS_OF_SLEEP_IP}
 
   heart-rate-service:
-    container_name: heart-rate
+    container_name: ${HEART_RATE_CONTAINER}
     build:
       context: ./Docker/HR/
       dockerfile: Dockerfile
@@ -73,12 +61,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${HEART_RATE_IP}
 
   limb-movement-rate-service:
-    container_name: limb-movement-rate
+    container_name: ${LIMB_MOVEMENT_RATE_CONTAINER}
     build:
       context: ./Docker/LMR/
       dockerfile: Dockerfile
@@ -88,12 +73,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${LIMB_MOVEMENT_RATE_IP}
 
   respiration-rate-service:
-    container_name: respiration-rate
+    container_name: ${RESPIRATION_RATE_CONTAINER}
     build:
       context: ./Docker/RR/
       dockerfile: Dockerfile
@@ -103,12 +85,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${RESPIRATION_RATE_IP}
 
   stress-levels-service:
-    container_name: stress-levels
+    container_name: ${SRESS_LEVELS_CONTAINER}
     build:
       context: ./Docker/SL/
       dockerfile: Dockerfile
@@ -118,12 +97,9 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${SRESS_LEVELS_IP}
 
   snoring-range-service:
-    container_name: snoring-range
+    container_name: ${SNORING_RANGE_CONTAINER}
     build:
       context: ./Docker/SR/
       dockerfile: Dockerfile
@@ -133,39 +109,28 @@ services:
       - .env
     depends_on:
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${SNORING_RANGE_IP}
 
   node-red:
     restart: always
     depends_on:
       - mqtt
     image: nodered/node-red
-    container_name: sleep-monitor-nodered-1
-    # build: docker-nodered/
+    container_name: ${NODE_RED_CONTAINER}
     ports:
-      - 1880:1880
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${NODE_RED_IP}
+      - ${NODE_RED_PORT}:${NODE_RED_PORT}
     volumes: 
       - ./nodered/data:/data
 
   mqtt:
       image: toke/mosquitto
-      container_name: mqtt
-      expose:
-        - 1883
+      container_name: ${MQTT_CONTAINER}
       ports:
-        - 1883:1883
+        - ${MQTT_PORT}:${MQTT_PORT}
       restart: unless-stopped
-      networks:
-        sleep-monitor-network:
-          ipv4_address: ${MQTT_IP}
 
   influxdb:
     image: influxdb:2.7.4
+    container_name: ${INFLUXDB_CONTAINER}
     volumes:
       - ./influxdb-storage/data:/var/lib/influxdb2:rw
     env_file:
@@ -173,13 +138,11 @@ services:
     entrypoint: ["./entrypoint.sh"]
     restart: on-failure:10
     ports:
-      - ${DOCKER_INFLUXDB_INIT_PORT}:8086
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${INFLUXDB_IP}
+      - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
 
   telegraf:
     image: telegraf:1.19
+    container_name: ${TELEGRAF_CONTAINER}
     volumes:
       - ${TELEGRAF_CFG_PATH}:/etc/telegraf/telegraf.conf:rw
     env_file:
@@ -187,29 +150,17 @@ services:
     depends_on:
       - influxdb
       - mqtt
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${TELEGRAF_IP}
 
   grafana:
     image: grafana/grafana-oss:8.4.3
+    container_name: ${GRAFANA_CONTAINER}
     volumes:
       - ./grafana:/var/lib/grafana:rw
     depends_on:
       - influxdb
     ports:
-      - ${GRAFANA_PORT}:3000
-    networks:
-      sleep-monitor-network:
-        ipv4_address: ${GRAFANA_IP}
+      - ${GRAFANA_PORT}:${GRAFANA_PORT}
 
-volumes:
-  grafana-storage:
-  influxdb-storage:
-
-networks:
-  sleep-monitor-network:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: ${SUBNET}
+# volumes:
+#   grafana-storage:
+#   influxdb-storage:
