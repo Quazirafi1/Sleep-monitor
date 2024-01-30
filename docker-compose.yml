@@ -120,7 +120,7 @@ services:
       - mqtt
     networks:
       sleep-monitor-network:
-        ipv4_address: ${SRESS_LEVELS_IP}
+        ipv4_address: ${STESS_LEVELS_IP}
 
   snoring-range-service:
     container_name: snoring-range
@@ -143,9 +143,8 @@ services:
       - mqtt
     image: nodered/node-red
     container_name: sleep-monitor-nodered-1
-    # build: docker-nodered/
     ports:
-      - 1880:1880
+      - ${NODE_RED_PORT}:${NODE_RED_PORT}
     networks:
       sleep-monitor-network:
         ipv4_address: ${NODE_RED_IP}
@@ -165,13 +164,13 @@ services:
   influxdb:
     image: influxdb:2.7.4
     volumes:
-      - ./influxdb-storage/data:/var/lib/influxdb2:rw
+      - ./influxdb:/var/lib/influxdb2:rw
     env_file:
       - .env
     entrypoint: ["./entrypoint.sh"]
     restart: on-failure:10
     ports:
-      - ${DOCKER_INFLUXDB_INIT_PORT}:8086
+      - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
     networks:
       sleep-monitor-network:
         ipv4_address: ${INFLUXDB_IP}
@@ -196,7 +195,7 @@ services:
     depends_on:
       - influxdb
     ports:
-      - ${GRAFANA_PORT}:3000
+      - ${GRAFANA_PORT}:${GRAFANA_PORT}
     networks:
       sleep-monitor-network:
         ipv4_address: ${GRAFANA_IP}
