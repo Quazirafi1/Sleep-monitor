@@ -155,10 +155,8 @@ services:
   mqtt:
       image: toke/mosquitto
       container_name: mqtt
-      expose:
-        - 1883
       ports:
-        - 1883:1883
+        - ${MQTT_PORT}:${MQTT_PORT}
       restart: unless-stopped
       networks:
         sleep-monitor-network:

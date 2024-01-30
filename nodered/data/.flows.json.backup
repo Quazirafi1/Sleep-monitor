@@ -1,0 +1,913 @@
+[
+    {
+        "id": "cc798c022ca2deaf",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fe057dd56c7a4577",
+        "type": "mqtt-broker",
+        "name": "mqtt docker",
+        "broker": "172.30.0.110",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3acab22acb1a6a10",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Blood Oxygen Levels",
+        "topic": "/SleepMonitor/BOL",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 240,
+        "wires": [
+            [
+                "65cca1b6b615087f"
+            ]
+        ]
+    },
+    {
+        "id": "06c4be7351e39cc1",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Body Temperature",
+        "topic": "/SleepMonitor/BT",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "f805470b15735553"
+            ]
+        ]
+    },
+    {
+        "id": "85f1543620555f10",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Eye Movement",
+        "topic": "/SleepMonitor/EM",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "7b6837f85393f2f8"
+            ]
+        ]
+    },
+    {
+        "id": "455609bffca71ee6",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Hours Of Sleep",
+        "topic": "/SleepMonitor/HOS",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "6d4955c5a685999b"
+            ]
+        ]
+    },
+    {
+        "id": "5301f113b09dca57",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Heart Rate",
+        "topic": "/SleepMonitor/HR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "005f6504711940bc"
+            ]
+        ]
+    },
+    {
+        "id": "ea80faf1b98d993b",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Limb Movement Rate",
+        "topic": "/SleepMonitor/LMR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 540,
+        "wires": [
+            [
+                "27564bbe57f23f70"
+            ]
+        ]
+    },
+    {
+        "id": "f690ad78ce675105",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Respiration Rate",
+        "topic": "/SleepMonitor/RR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "3044ce73d15aa011"
+            ]
+        ]
+    },
+    {
+        "id": "e08ecb6f5ca66bcf",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Stress Levels",
+        "topic": "/SleepMonitor/SL",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 660,
+        "wires": [
+            [
+                "dd0ce02f7c379959"
+            ]
+        ]
+    },
+    {
+        "id": "bc259bd4891e2a29",
+        "type": "mqtt in",
+        "z": "cc798c022ca2deaf",
+        "name": "Snoring Range",
+        "topic": "/SleepMonitor/SR",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "fe057dd56c7a4577",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 720,
+        "wires": [
+            [
+                "2a6d6d80e1a3efb3"
+            ]
+        ]
+    },
+    {
+        "id": "458627fdb8265aff",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed BOL",
+        "topic": "Blood oxygen levels",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "7b6837f85393f2f8",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 360,
+        "wires": [
+            [
+                "f9d254cb63535224"
+            ]
+        ]
+    },
+    {
+        "id": "f9d254cb63535224",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 360,
+        "wires": [
+            [
+                "5140c7a440918ff3"
+            ]
+        ]
+    },
+    {
+        "id": "5140c7a440918ff3",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for EM",
+        "func": "msg.payload = msg.payload.EyeMovement;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 360,
+        "wires": [
+            [
+                "568e0e5a26ccbd47"
+            ]
+        ]
+    },
+    {
+        "id": "568e0e5a26ccbd47",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed EM",
+        "topic": "Eye movement",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "65cca1b6b615087f",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 240,
+        "wires": [
+            [
+                "277b032df6e9421d"
+            ]
+        ]
+    },
+    {
+        "id": "f805470b15735553",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "ba87661a0f6ef929"
+            ]
+        ]
+    },
+    {
+        "id": "6d4955c5a685999b",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 420,
+        "wires": [
+            [
+                "2e4aa987b935dafd"
+            ]
+        ]
+    },
+    {
+        "id": "005f6504711940bc",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 480,
+        "wires": [
+            [
+                "d24a9be49c3baab3"
+            ]
+        ]
+    },
+    {
+        "id": "27564bbe57f23f70",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "7cf87bd907c37f74"
+            ]
+        ]
+    },
+    {
+        "id": "3044ce73d15aa011",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 600,
+        "wires": [
+            [
+                "d8c9f4639b93654c"
+            ]
+        ]
+    },
+    {
+        "id": "dd0ce02f7c379959",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 660,
+        "wires": [
+            [
+                "ad7a78cdcb6678ce"
+            ]
+        ]
+    },
+    {
+        "id": "2a6d6d80e1a3efb3",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Replace single quotes with doubles",
+        "func": "msg.payload = msg.payload.replace(/'/ig, '\"');\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "ea434ab7c414612d"
+            ]
+        ]
+    },
+    {
+        "id": "277b032df6e9421d",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 240,
+        "wires": [
+            [
+                "339115d4097a3abf"
+            ]
+        ]
+    },
+    {
+        "id": "ba87661a0f6ef929",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "661971f7e65eeb72"
+            ]
+        ]
+    },
+    {
+        "id": "2e4aa987b935dafd",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 420,
+        "wires": [
+            [
+                "a83e1db21bdd7ee8"
+            ]
+        ]
+    },
+    {
+        "id": "d24a9be49c3baab3",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 480,
+        "wires": [
+            [
+                "618e7ebb1f95119e"
+            ]
+        ]
+    },
+    {
+        "id": "7cf87bd907c37f74",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 540,
+        "wires": [
+            [
+                "58fe4b202489c556"
+            ]
+        ]
+    },
+    {
+        "id": "d8c9f4639b93654c",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 600,
+        "wires": [
+            [
+                "8a54745fb7918c53"
+            ]
+        ]
+    },
+    {
+        "id": "ad7a78cdcb6678ce",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 660,
+        "wires": [
+            [
+                "182156121b1b943d"
+            ]
+        ]
+    },
+    {
+        "id": "ea434ab7c414612d",
+        "type": "json",
+        "z": "cc798c022ca2deaf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 720,
+        "wires": [
+            [
+                "885f01ef9e850811"
+            ]
+        ]
+    },
+    {
+        "id": "ae793ad18c79c761",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed BT",
+        "topic": "Body temperature",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1470,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "3d4e574bba736dbf",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed HOS",
+        "topic": "Hours of sleep",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "cb656a3376314774",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed HR",
+        "topic": "Heart rate",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "5db9f70df9deca3d",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed LMR",
+        "topic": "Limb movement rate",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b7f24b97c8ef2830",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed RR",
+        "topic": "Respiration rate",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6b1cf7c4f229a14e",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed SL",
+        "topic": "Stress levels",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1470,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "1c10327f293ac2ca",
+        "type": "mqtt out",
+        "z": "cc798c022ca2deaf",
+        "name": "Accessed SR",
+        "topic": "Snoring rate",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "fe057dd56c7a4577",
+        "x": 1480,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "339115d4097a3abf",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for BOL",
+        "func": "msg.payload = msg.payload.BloodOxygenLevel;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 240,
+        "wires": [
+            [
+                "458627fdb8265aff",
+                "a71cc08b91549dd2"
+            ]
+        ]
+    },
+    {
+        "id": "661971f7e65eeb72",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for BT",
+        "func": "msg.payload = msg.payload.BodyTemperature;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 300,
+        "wires": [
+            [
+                "ae793ad18c79c761"
+            ]
+        ]
+    },
+    {
+        "id": "a83e1db21bdd7ee8",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for HOS",
+        "func": "msg.payload = msg.payload.HoursOfSleep;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 420,
+        "wires": [
+            [
+                "3d4e574bba736dbf"
+            ]
+        ]
+    },
+    {
+        "id": "618e7ebb1f95119e",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for HR",
+        "func": "msg.payload = msg.payload.HeartRate;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 480,
+        "wires": [
+            [
+                "cb656a3376314774"
+            ]
+        ]
+    },
+    {
+        "id": "58fe4b202489c556",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for LMR",
+        "func": "msg.payload = msg.payload.LimbMovementRate;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 540,
+        "wires": [
+            [
+                "5db9f70df9deca3d"
+            ]
+        ]
+    },
+    {
+        "id": "8a54745fb7918c53",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for RR",
+        "func": "msg.payload = msg.payload.respirationRate;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 600,
+        "wires": [
+            [
+                "b7f24b97c8ef2830"
+            ]
+        ]
+    },
+    {
+        "id": "182156121b1b943d",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for SL",
+        "func": "msg.payload = msg.payload.StressLevels;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 660,
+        "wires": [
+            [
+                "6b1cf7c4f229a14e"
+            ]
+        ]
+    },
+    {
+        "id": "885f01ef9e850811",
+        "type": "function",
+        "z": "cc798c022ca2deaf",
+        "name": "Extract value for SR",
+        "func": "msg.payload = msg.payload.snoringRange;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 720,
+        "wires": [
+            [
+                "1c10327f293ac2ca"
+            ]
+        ]
+    },
+    {
+        "id": "a71cc08b91549dd2",
+        "type": "debug",
+        "z": "cc798c022ca2deaf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1520,
+        "y": 100,
+        "wires": []
+    }
+]

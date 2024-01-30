@@ -13,9 +13,8 @@ load_dotenv()
 print('starting simulation')
 
 # hostname
-broker = os.environ.get('HOURS_OF_SLEEP_IP')
-# port
-port = 1883
+broker = os.environ.get('MQTT_IP')
+port = int(os.environ.get('MQTT_PORT'))
 
 def on_publish(client, userdata, result):
     print("Hours Of Sleep Publisher : Data published.")
